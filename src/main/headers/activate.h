@@ -6,7 +6,7 @@
 class Activate
 {
     public:
-        static void activate(GtkApplication* app, gpointer user_data);
+        static void show(GtkApplication* app, gpointer user_data);
 };
 
 #endif
