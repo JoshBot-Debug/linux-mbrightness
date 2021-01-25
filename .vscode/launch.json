@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/exe/main/debug/${workspaceFolderBasename}",
-            "args": ["50"],
+            "args": ["0.5"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

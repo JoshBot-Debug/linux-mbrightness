@@ -14,14 +14,13 @@ private:
 	XRRScreenResources *resources;
 	RROutput output;
 	XRRPropertyInfo *info;
-	int screen, o;
 	double min, max;
 	long value;
 
 
 public:
     Brightness();
-    void setBrightness(int percent);
+    void setBrightness(float percent);
 };
 
 #endif

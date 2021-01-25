@@ -1,9 +1,11 @@
 #include <gtk/gtk.h>
 
 #include <iostream>
-#include "activate.h"
+#include <stdio.h>
 
+#include "activate.h"
 #include "brightness.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -11,12 +13,16 @@ int main(int argc, char *argv[])
 	int status;
 
 	Brightness brightnessController;
-	brightnessController.setBrightness(100);
+	brightnessController.setBrightness(atof(argv[1]));
+
 
 	app = gtk_application_new("org.gtk.example", G_APPLICATION_FLAGS_NONE);
 	g_signal_connect(app, "activate", G_CALLBACK (Activate::activate), NULL);
 
-	status = g_application_run(G_APPLICATION (app), argc, argv);
+	int argd;
+	char **argx;
+
+	status = g_application_run(G_APPLICATION (app), argd, argx);
 	g_object_unref(app);
 
 	return status;
