@@ -1,7 +1,8 @@
 #include <gtk/gtk.h>
 
 #include "activate.h"
-#include "brightness.h"
+
+Brightness Activate::brightness;
 
 void Activate::show(GtkApplication* app, gpointer user_data)
 {
@@ -23,7 +24,7 @@ void Activate::show(GtkApplication* app, gpointer user_data)
 	range = gtk_scale_new_with_range(GTK_ORIENTATION_HORIZONTAL,0,100,1);
     gtk_container_add(GTK_CONTAINER(box), range);
 
-    g_signal_connect(range, "value-changed", G_CALLBACK (Brightness::change), NULL);
+    g_signal_connect(range, "value-changed", G_CALLBACK (handleChange), NULL);
 
 
     cssProvider = gtk_css_provider_new();
@@ -39,4 +40,10 @@ void Activate::show(GtkApplication* app, gpointer user_data)
     gtk_style_context_add_provider(context, GTK_STYLE_PROVIDER(cssProvider), GTK_STYLE_PROVIDER_PRIORITY_USER);
 
     gtk_widget_show_all(window);
+}
+
+
+void Activate::handleChange(GtkRange *range){
+    double r = gtk_range_get_value(range);
+    brightness.setBrightness((r/100));
 }

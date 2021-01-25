@@ -12,11 +12,6 @@ Brightness::Brightness()
 	max = info->values[1];
 }
 
-static Brightness *getInstance() {
-    if (!Brightness::instance)
-    Brightness::instance = new Brightness;
-    return Brightness::instance;
-}
 
 void Brightness::setBrightness(float percent)
 {
@@ -29,12 +24,4 @@ void Brightness::setBrightness(float percent)
 
     XFlush(dpy);
 	XSync(dpy, False);
-}
-
-
-void Brightness::change(GtkRange *range, gpointer  user_data)
-{
-    Brightness *brightness = Brightness::getInstance();
-    double r = gtk_range_get_value(range);
-    brightness->setBrightness(0.5);
 }

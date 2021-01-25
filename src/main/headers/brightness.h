@@ -23,11 +23,7 @@ private:
 
 public:
     Brightness();
-	static Brightness *instance;
-	static Brightness *getInstance();
     void setBrightness(float percent);
-	
-	static void change(GtkRange *range, gpointer  user_data);
 };
 
 #endif
