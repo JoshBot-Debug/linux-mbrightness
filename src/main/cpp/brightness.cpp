@@ -1,5 +1,5 @@
 #include "brightness.h"
-
+#include <iostream>
 Brightness::Brightness()
 {
     dpy = XOpenDisplay(NULL);
@@ -16,6 +16,13 @@ Brightness::Brightness()
 void Brightness::setBrightness(float percent)
 {
     value = percent * (max - min) + min;
+
+	std::cout << value << std::endl;
+
+	// XRRScreenConfiguration *r = XRRGetScreenInfo(dpy, root);
+	// RROutput r = XRRGetOutputPrimary(dpy, root);
+	
+	// std::cout << r << std::endl;
 
     XRRChangeOutputProperty(
         dpy, output, backlight, XA_INTEGER,

@@ -59,7 +59,9 @@ tasks.withType(CppCompile).configureEach {
     compilerArgs.add "-I/usr/lib/x86_64-linux-gnu"
     compilerArgs.add "-lX11"
     compilerArgs.add "-lXrandr"
-    // compilerArgs.add "-lXatom"
+
+    compilerArgs.add "-lxcb"
+    compilerArgs.add "-lxcb-randr"
 }
 
 tasks.withType(LinkExecutable).configureEach {
@@ -98,6 +100,8 @@ tasks.withType(LinkExecutable).configureEach {
 
     linkerArgs.add "-I/usr/lib/x86_64-linux-gnu"
     linkerArgs.add "-lX11"
-    linkerArgs.add "-lXrandr"
-    // linkerArgs.add "-lXatom"
+    linkerArgs.add "-lXrandr"   
+
+    linkerArgs.add "-lxcb"
+    linkerArgs.add "-lxcb-randr"
 }

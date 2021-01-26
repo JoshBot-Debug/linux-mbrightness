@@ -5,6 +5,7 @@
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>
 #include <X11/extensions/Xrandr.h>
+#include <xcb/randr.h>
 
 class Brightness
 {
